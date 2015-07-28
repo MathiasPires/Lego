@@ -1,0 +1,50 @@
+rm(list=c(ls()))
+rm(list=c(ls()))
+library(igraph)#
+library(plotrix)#
+library(RColorBrewer)#
+#
+source("R/build_template.R")
+tic <- 0
+i=100
+tic <- tic + 1#
+  num_play <- i#
+  pw_prob <- c(#
+    pr_ne = 0.025,#
+    pr_nn = 0.025,#
+    pr_ni = 0.05,#
+    pr_nm = 0.005,#
+    pr_ia = 0.05,#
+    pr_ie = 0.2,#
+    pr_ii = 0.5,#
+    pr_aa = 0.05,#
+    pr_ee = 0.05#
+  )#
+  #make sure this vector sums to one#
+  pw_prob <- pw_prob / sum(pw_prob)#
+  #Build the interaction template#
+  int_m <- build_template(num_play,pw_prob)#
+  #Some funky things#
+  # Passive players can 'make' things... this might be okay (chemical rxns)#
+  #Proportion of active players#
+  player_id <- apply(int_m,1,function(x){length(which(x == "e")) > 0})*1#
+  prop_active[tic] <- sum(player_id)/num_play#
+  #fw_connectance[tic] <- #
+#}
+prop_active <- numeric(length(sequence))
+xx=matrix(as.numeric(as.factor(int_m)),c(num_play,num_play))
+color2D.matplot(xx,extremes=c(1:5), border="white", axes=FALSE, xlab="", ylab="",main="")
+levels(as.factor(int_m))
+color2D.matplot(xx,extremes=c(1:5), border="white", axes=FALSE, xlab="", ylab="",main="")
+legend(i,i,legend=levels(as.factor(int_m)),pch=23,pt.bg=c(1:5))
+color2D.matplot(xx,extremes=c(1:5), border="white", axes=FALSE, xlab="", ylab="",main="")#
+legend(i,i,legend=levels(as.factor(int_m)),pch=23,pt.bg=c(1:5))
+legend(i,i,legend=levels(as.factor(int_m)),pch=23,pt.bg=c(1:5),xpd=TRUE)
+legend(i,i,legend=levels(as.factor(int_m)),pch=22,pt.bg=c(1:5),xpd=TRUE)
+legend(i,i,legend=levels(as.factor(int_m)),pch=22,pt.bg=c(1:5),xpd=TRUE, bty="")
+xx=matrix(as.numeric(as.factor(int_m)),c(num_play,num_play))#
+color2D.matplot(xx,extremes=c(1:5), border="white", axes=FALSE, xlab="", ylab="",main="")#
+legend(i,i,legend=levels(as.factor(int_m)),pch=22,pt.bg=c(1:5),xpd=TRUE, bty="")
+xx=matrix(as.numeric(as.factor(int_m)),c(num_play,num_play))#
+color2D.matplot(xx,extremes=c(1:5), border="white", axes=FALSE, xlab="", ylab="",main="")#
+legend(i,i,legend=levels(as.factor(int_m)),pch=22,pt.bg=c(1:5),xpd=TRUE, bty="n")

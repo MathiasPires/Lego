@@ -92,14 +92,14 @@ build_template <- function(num_players, pw_prob, tr.avoid) {
       }
     }
   }
-  #Determine which are active players and which aren't
-  for (i in 1:num_play) {
-    if (length(which(int_m[i,] == "e")) > 0) {
-      int_m[i,i] <- "n"
-    } else {
-      int_m[i,i] = "i"
-    }
-  }
+#   #Determine which are active players and which aren't
+#   for (i in 1:num_play) {
+#     if (length(which(int_m[i,] == "e")) > 0) {
+#       int_m[i,i] <- "n"
+#     } else {
+#       int_m[i,i] = "i"
+#     }
+#   }
   
   #Implement posthoc Rules
   
