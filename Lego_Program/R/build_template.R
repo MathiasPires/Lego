@@ -1,6 +1,6 @@
 build_template <- function(num_players, pw_prob, tr.avoid) {
   
-  
+  num_play=num_players  
   
   #Define player interaction matrix
   int_m <- matrix(0,num_play,num_play)
